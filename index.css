@@ -1,0 +1,232 @@
+html,
+body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  font-family: system-ui, sans-serif;
+}
+
+#app {
+  display: flex;
+  height: 100%;
+}
+
+/* Tool bar */
+
+#toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 6px;
+  overflow-y: auto;
+  background: #2b2b2b;
+}
+
+/* Items keep their size; the bar scrolls if the window is too short. */
+#toolbar > * {
+  flex-shrink: 0;
+}
+
+#toolbar button {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: #ddd;
+  cursor: pointer;
+}
+
+#toolbar button:hover {
+  background: #3d3d3d;
+}
+
+#toolbar button.active {
+  background: #4a6fa5;
+  color: #fff;
+}
+
+#toolbar svg {
+  width: 22px;
+  height: 22px;
+}
+
+/* Pencil color: a swatch opening the browser's color chooser. */
+
+/* Quick color palette: 2 columns of slots. */
+
+#toolbar .palette {
+  display: grid;
+  grid-template-columns: repeat(2, 18px);
+  gap: 4px;
+  justify-content: center;
+  margin-top: 2px;
+}
+
+#toolbar .palette-slot {
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+#toolbar .palette-slot.empty {
+  border: 1px dashed #777;
+  background: transparent;
+}
+
+#toolbar .palette-slot.empty:hover {
+  border-color: #ddd;
+}
+
+#toolbar .palette-slot.current {
+  outline: 2px solid #4a8fe7;
+  outline-offset: 1px;
+}
+
+#toolbar .spacer {
+  flex: 1;
+}
+
+#toolbar .separator {
+  height: 1px;
+  margin: 4px 2px;
+  background: #555;
+}
+
+#toolbar input[type="color"] {
+  width: 40px;
+  height: 40px;
+  padding: 6px;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  cursor: pointer;
+}
+
+#toolbar input[type="color"]:hover {
+  background: #3d3d3d;
+}
+
+#toolbar input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+#toolbar input[type="color"]::-webkit-color-swatch {
+  border: 2px solid #ddd;
+  border-radius: 4px;
+}
+
+#toolbar input[type="color"]::-moz-color-swatch {
+  border: 2px solid #ddd;
+  border-radius: 4px;
+}
+
+/* Two stacked canvases: the quadtree below, tool previews above. */
+
+#viewport {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+}
+
+#viewport canvas {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+#overlay-layer {
+  touch-action: none;
+}
+
+/* Floating tool options panel, on the right of the view. */
+
+#options-panel {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 160px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: #2b2b2b;
+  color: #ddd;
+  font-size: 13px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+}
+
+#options-panel[hidden] {
+  display: none;
+}
+
+#options-panel .options-title {
+  font-weight: 600;
+  color: #fff;
+}
+
+#options-panel .option {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+#options-panel .option-label {
+  color: #aaa;
+  font-size: 12px;
+}
+
+#options-panel .segmented {
+  display: flex;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #3d3d3d;
+}
+
+#options-panel .segmented button {
+  flex: 1;
+  padding: 5px 10px;
+  border: none;
+  background: transparent;
+  color: #ddd;
+  font: inherit;
+  cursor: pointer;
+}
+
+#options-panel .segmented button:hover {
+  background: #4a4a4a;
+}
+
+#options-panel .segmented button.active {
+  background: #4a6fa5;
+  color: #fff;
+}
+
+/* Autosave warning, at the bottom of the view. */
+
+#notice {
+  position: absolute;
+  left: 50%;
+  bottom: 16px;
+  transform: translateX(-50%);
+  max-width: calc(100% - 32px);
+  padding: 8px 14px;
+  border-radius: 6px;
+  background: #b3261e;
+  color: #fff;
+  font-size: 13px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+}
+
+#notice[hidden] {
+  display: none;
+}
