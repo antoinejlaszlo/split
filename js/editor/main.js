@@ -16,6 +16,7 @@ import { restoreDocument, restoreSettings, startAutosave } from "./persistence.j
 import { createMoveTool } from "./tools/move.js";
 import { createPencilTool } from "./tools/pencil.js";
 import { createFillTool } from "./tools/fill.js";
+import { createPickerTool } from "./tools/picker.js";
 import { createTextTool } from "./tools/text.js";
 import { createSelectTool } from "./tools/select.js";
 import { createShapeTool } from "./tools/shape.js";
@@ -47,6 +48,7 @@ const tools = [
   createSelectTool(context),
   createPencilTool(context),
   createFillTool(context),
+  createPickerTool(context),
   createTextTool(context),
   createShapeTool({
     type: "rectangle",

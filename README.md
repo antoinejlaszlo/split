@@ -55,6 +55,7 @@ Tools (left bar):
 | Select | Click a box (text, shape) to select it, Delete to remove it, drag the handles to resize shapes. |
 | Pencil | Paint quadtree squares; size follows the zoom (Size option). |
 | Fill | Recolor the leaf under the cursor, whatever its size (click or drag). |
+| Color picker | Click (or drag) to take the color under the cursor as the current color. |
 | Text | Click and type; text is drawn in pixelated Comic Sans. Click an existing text to edit it. |
 | Rectangle / Ellipse | Drag to draw; Filled or Outline option. |
 

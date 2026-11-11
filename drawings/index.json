@@ -1,6 +1,13 @@
 {
   "drawings": [
     {
+      "id": "winAtGeoguessr",
+      "name": "Win at GeoGuessr",
+      "file": "winAtGeoguessr.quad",
+      "thumbnail": "winAtGeoguessr.png",
+      "published": "2026-11-11"
+    },
+    {
       "id": "world-map",
       "name": "World map",
       "file": "world-map.quad",
