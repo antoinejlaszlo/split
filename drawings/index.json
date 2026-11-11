@@ -1,3 +1,11 @@
 {
-  "drawings": []
+  "drawings": [
+    {
+      "id": "world-map",
+      "name": "World map",
+      "file": "world-map.quad",
+      "thumbnail": "world-map.png",
+      "published": "2026-11-11"
+    }
+  ]
 }
