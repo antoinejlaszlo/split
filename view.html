@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Split</title>
+  <link rel="stylesheet" href="css/site.css">
+  <link rel="stylesheet" href="css/viewer.css">
+</head>
+<body>
+  <header class="site-bar">
+    <a class="button" href="index.html" aria-label="Back to the gallery">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M15 5l-7 7 7 7"/>
+      </svg>
+      <span class="label">Gallery</span>
+    </a>
+    <span id="title" class="title grow"></span>
+    <a id="download" class="button" hidden>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 3v12M7 10l5 5 5-5M4 19h16"/>
+      </svg>
+      <span class="label">Download .quad</span>
+    </a>
+  </header>
+  <div id="viewport">
+    <canvas id="tree-layer"></canvas>
+    <canvas id="overlay-layer"></canvas>
+    <p id="message" class="message">Loading…</p>
+  </div>
+  <script type="module" src="js/viewer.js"></script>
+</body>
+</html>

@@ -1,20 +1,21 @@
 // Wiring: creates the camera, renderer, navigation and tools, and sends the
 // pointer events of the top canvas to navigation or to the active tool.
 
-import { quadtree } from "./quadtree.js";
-import { Camera } from "./camera.js";
-import { Renderer } from "./renderer.js";
-import { ObjectLayer } from "./objects/objectLayer.js";
-import { createNavigation } from "./navigation.js";
+import { quadtree } from "../core/quadtree.js";
+import { Camera } from "../core/camera.js";
+import { Renderer } from "../core/renderer.js";
+import { ObjectLayer } from "../core/objects/objectLayer.js";
+import { createNavigation } from "../core/navigation.js";
 import { createToolbar } from "./toolbar.js";
 import { createColorPicker } from "./colorPicker.js";
 import { createPalette } from "./palette.js";
 import { createFileMenu } from "./fileMenu.js";
 import { createOptionsPanel } from "./optionsPanel.js";
-import { state, onStateChange, documentChanged } from "./state.js";
+import { state, onStateChange, documentChanged } from "../core/state.js";
 import { restoreDocument, restoreSettings, startAutosave } from "./persistence.js";
 import { createMoveTool } from "./tools/move.js";
 import { createPencilTool } from "./tools/pencil.js";
+import { createFillTool } from "./tools/fill.js";
 import { createTextTool } from "./tools/text.js";
 import { createSelectTool } from "./tools/select.js";
 import { createShapeTool } from "./tools/shape.js";
@@ -45,6 +46,7 @@ const tools = [
   createMoveTool(context),
   createSelectTool(context),
   createPencilTool(context),
+  createFillTool(context),
   createTextTool(context),
   createShapeTool({
     type: "rectangle",

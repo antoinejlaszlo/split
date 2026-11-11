@@ -4,8 +4,8 @@
 // and a ghost shows the square that will be painted. When a stroke ends, the
 // quadtree is minimized over the stroke's area (same-colored squares merged).
 
-import { state, documentChanged } from "../state.js";
-import { hexToRgb } from "../color.js";
+import { state, documentChanged } from "../../core/state.js";
+import { hexToRgb } from "../../core/color.js";
 import { depthForCellSize, clampWorld, cellIndex, drawGhostRect } from "./grid.js";
 
 const TARGET_CELL_SIZE = 32; // CSS pixels

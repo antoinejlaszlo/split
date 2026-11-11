@@ -5,7 +5,7 @@
 //   optionValues: { [key]: value }
 // The panel is hidden for tools without options.
 
-import { state, setToolOption, onStateChange } from "./state.js";
+import { state, setToolOption, onStateChange } from "../core/state.js";
 
 export function createOptionsPanel(container) {
   const panel = document.createElement("div");

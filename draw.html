@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Draw – Split</title>
+  <link rel="stylesheet" href="css/editor.css">
+</head>
+<body>
+  <div id="app">
+    <nav id="toolbar" aria-label="Tools">
+      <a id="home-link" href="index.html" title="Gallery" aria-label="Gallery">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round">
+          <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/>
+          <rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>
+        </svg>
+      </a>
+      <div class="separator"></div>
+    </nav>
+    <div id="viewport">
+      <canvas id="tree-layer"></canvas>
+      <canvas id="overlay-layer"></canvas>
+    </div>
+  </div>
+  <script type="module" src="js/editor/main.js"></script>
+</body>
+</html>

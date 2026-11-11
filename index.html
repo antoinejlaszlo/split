@@ -3,17 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quadtree</title>
-  <link rel="stylesheet" href="index.css">
+  <title>Split – Gallery</title>
+  <link rel="stylesheet" href="css/site.css">
+  <link rel="stylesheet" href="css/gallery.css">
 </head>
 <body>
-  <div id="app">
-    <nav id="toolbar" aria-label="Tools"></nav>
-    <div id="viewport">
-      <canvas id="tree-layer"></canvas>
-      <canvas id="overlay-layer"></canvas>
-    </div>
-  </div>
-  <script type="module" src="main.js"></script>
+  <header class="site-bar">
+    <a class="brand" href="index.html">Split</a>
+    <span class="grow"></span>
+    <a class="button primary" href="draw.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M16 3l5 5L8 21H3v-5L16 3z"/>
+      </svg>
+      Draw
+    </a>
+  </header>
+  <main>
+    <h1>Gallery</h1>
+    <p class="intro">Drawings made of quadtree squares. Open one to zoom into its details.</p>
+    <ul id="gallery" class="grid"></ul>
+    <p id="empty" class="empty" hidden>No drawings published yet.</p>
+  </main>
+  <script type="module" src="js/gallery.js"></script>
 </body>
 </html>

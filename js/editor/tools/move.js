@@ -1,6 +1,6 @@
 // Move tool: drag with the left button to pan.
 
-import { createPanGesture } from "../navigation.js";
+import { createPanGesture } from "../../core/navigation.js";
 
 export function createMoveTool({ camera, requestRender }) {
   const pan = createPanGesture(camera, requestRender);

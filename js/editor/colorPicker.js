@@ -1,7 +1,7 @@
 // Pencil color picker: a swatch in the tool bar showing the current color.
 // Clicking it opens the browser's color chooser.
 
-import { state, setColor, onStateChange } from "./state.js";
+import { state, setColor, onStateChange } from "../core/state.js";
 
 export function createColorPicker(toolbar) {
   const separator = document.createElement("div");

@@ -1,6 +1,6 @@
 // The tool bar on the left: one button per tool, highlighting the active one.
 
-import { state, setActiveTool, onStateChange } from "./state.js";
+import { state, setActiveTool, onStateChange } from "../core/state.js";
 
 export function createToolbar(element, tools) {
   const buttons = new Map();

@@ -4,7 +4,7 @@
 // - Click an empty slot to store the current color in it.
 // - Right-click a slot to replace it with the current color.
 
-import { state, setColor, setPaletteSlot, onStateChange } from "./state.js";
+import { state, setColor, setPaletteSlot, onStateChange } from "../core/state.js";
 
 export function createPalette(toolbar) {
   const grid = document.createElement("div");

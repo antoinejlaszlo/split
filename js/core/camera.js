@@ -1,5 +1,9 @@
 // The 2D camera. The root square occupies [0, 1] x [0, 1] in world coordinates.
 // Screen coordinates are in device pixels, relative to the top-left of the view.
+//
+// The view is drawn on whole pixels: world coordinates map to screen through
+// a whole-pixel origin (see `origin`). Panning therefore always moves the
+// picture by whole pixels, which lets the renderer reuse the previous frame.
 
 const MAX_ZOOM = 2 ** 20; // relative to the most unzoomed scale
 
@@ -43,19 +47,29 @@ export class Camera {
     this.y = Math.min(Math.max(this.y, 0), 1 - this.height / this.scale);
   }
 
+  // The view's top-left corner in pixels from the root's top-left corner,
+  // rounded down to whole pixels (the small epsilon absorbs rounding errors).
+  get originX() {
+    return Math.floor(this.x * this.scale + 1e-7);
+  }
+
+  get originY() {
+    return Math.floor(this.y * this.scale + 1e-7);
+  }
+
   screenToWorld(screenX, screenY) {
     return {
-      x: this.x + screenX / this.scale,
-      y: this.y + screenY / this.scale,
+      x: (screenX + this.originX) / this.scale,
+      y: (screenY + this.originY) / this.scale,
     };
   }
 
   worldToScreenX(worldX) {
-    return (worldX - this.x) * this.scale;
+    return worldX * this.scale - this.originX;
   }
 
   worldToScreenY(worldY) {
-    return (worldY - this.y) * this.scale;
+    return worldY * this.scale - this.originY;
   }
 
   // Moves the content by (dx, dy) screen pixels.

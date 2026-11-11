@@ -5,6 +5,10 @@ import { averageColor, sameColor } from "./color.js";
 // `children` is null for a leaf, or an array of 4 nodes in the order:
 // [top-left, top-right, bottom-left, bottom-right].
 export class QuadtreeNode {
+  // Incremented by every change to any node, so the renderer can tell whether
+  // the tree changed since its last frame.
+  static version = 0;
+
   constructor(color, children = null) {
     if (children !== null && children.length !== 4) {
       throw new Error("A non-leaf node must have exactly 4 children.");
@@ -22,11 +26,13 @@ export class QuadtreeNode {
   // Children all cover the same area, so this is the average over the node's area.
   updateColor() {
     this.color = averageColor(this.children.map((child) => child.color));
+    QuadtreeNode.version++;
   }
 
   // Turns a leaf into 4 leaves of the same color.
   subdivide() {
     this.children = [0, 1, 2, 3].map(() => new QuadtreeNode([...this.color]));
+    QuadtreeNode.version++;
   }
 
   // Color of the square at `depth` levels below this node containing the
@@ -45,6 +51,27 @@ export class QuadtreeNode {
     return node.isLeaf() ? node.color : null;
   }
 
+  // The leaf containing the point (x, y), given in this node's local
+  // coordinates ([0, 1) x [0, 1)), with its position and size in those
+  // coordinates and its depth below this node.
+  leafAt(x, y) {
+    let node = this;
+    let left = 0;
+    let top = 0;
+    let size = 1;
+    let depth = 0;
+    while (!node.isLeaf()) {
+      size /= 2;
+      const right = x >= left + size ? 1 : 0;
+      const bottom = y >= top + size ? 1 : 0;
+      left += right * size;
+      top += bottom * size;
+      node = node.children[bottom * 2 + right];
+      depth++;
+    }
+    return { node, x: left, y: top, size, depth };
+  }
+
   // Whether the square at `depth` levels below this node containing the point
   // (x, y) can be painted: it must be a leaf, or lie inside a leaf.
   // Non-leaf nodes cannot be painted over.
@@ -61,6 +88,7 @@ export class QuadtreeNode {
     if (depth === 0) {
       if (!this.isLeaf() || sameColor(this.color, color)) return false;
       this.color = [...color];
+      QuadtreeNode.version++;
       return true;
     }
     if (this.isLeaf()) {
@@ -92,6 +120,7 @@ export class QuadtreeNode {
     if (this.children.every((child) => child.isLeaf() && sameColor(child.color, first.color))) {
       this.color = [...first.color];
       this.children = null;
+      QuadtreeNode.version++;
     }
   }
 

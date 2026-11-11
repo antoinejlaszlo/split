@@ -3,8 +3,8 @@
 // (tool option). A ghost shows the shape while dragging, and the starting
 // pixel while hovering.
 
-import { state } from "../state.js";
-import { objectTypes } from "../objects/types.js";
+import { state } from "../../core/state.js";
+import { objectTypes } from "../../core/objects/types.js";
 import { depthForCellSize, cellIndex, drawGhostRect, drawPathGhost, boxToWorld } from "./grid.js";
 
 const SHAPE_PIXEL_SIZE = 2; // CSS pixels per shape pixel on screen, when starting a shape

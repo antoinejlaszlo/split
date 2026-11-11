@@ -24,8 +24,9 @@ export function cellIndex(value, depth) {
 export function drawGhostRect(ctx, camera, x, y, width, height, color, alpha) {
   const left = Math.round(camera.worldToScreenX(x));
   const top = Math.round(camera.worldToScreenY(y));
-  const w = Math.round(camera.worldToScreenX(x + width)) - left;
-  const h = Math.round(camera.worldToScreenY(y + height)) - top;
+  // At least one pixel, so even squares smaller than a pixel show.
+  const w = Math.max(1, Math.round(camera.worldToScreenX(x + width)) - left);
+  const h = Math.max(1, Math.round(camera.worldToScreenY(y + height)) - top);
 
   ctx.globalAlpha = alpha;
   ctx.fillStyle = color;

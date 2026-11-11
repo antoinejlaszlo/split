@@ -1,0 +1,88 @@
+/* Shared look of the gallery and viewer pages (the editor has its own CSS). */
+
+:root {
+  --bar: #2b2b2b;
+  --bar-hover: #3d3d3d;
+  --bar-text: #ddd;
+  --accent: #4a6fa5;
+  --accent-hover: #5a80b8;
+  --page: #f3f3f1;
+  --card: #ffffff;
+  --text: #1f1f1f;
+  --muted: #6b6b6b;
+  --border: #e2e2de;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  color: var(--text);
+  background: var(--page);
+}
+
+a {
+  color: inherit;
+}
+
+.site-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 56px;
+  padding: 0 16px;
+  background: var(--bar);
+  color: var(--bar-text);
+}
+
+.brand {
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: 0.02em;
+  color: #fff;
+  text-decoration: none;
+}
+
+.site-bar .grow {
+  flex: 1;
+  min-width: 0;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 36px;
+  padding: 0 14px;
+  border: none;
+  border-radius: 6px;
+  background: var(--bar-hover);
+  color: var(--bar-text);
+  font: inherit;
+  font-size: 14px;
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.button:hover {
+  background: #4a4a4a;
+}
+
+.button.primary {
+  background: var(--accent);
+  color: #fff;
+}
+
+.button.primary:hover {
+  background: var(--accent-hover);
+}
+
+.button svg {
+  width: 18px;
+  height: 18px;
+}

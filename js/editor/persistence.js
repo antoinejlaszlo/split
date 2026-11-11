@@ -4,9 +4,9 @@
 // - the settings: current color, palette, active tool, tool options and
 //   camera position, saved when they change and when leaving the page.
 
-import { serialize, deserialize } from "./storage.js";
-import { isHexColor } from "./color.js";
-import { state, onStateChange, onDocumentChange, setActiveTool } from "./state.js";
+import { serialize, deserialize } from "../core/storage.js";
+import { isHexColor } from "../core/color.js";
+import { state, onStateChange, onDocumentChange, setActiveTool } from "../core/state.js";
 
 const DOCUMENT_KEY = "quadtree:document";
 const SETTINGS_KEY = "quadtree:settings";

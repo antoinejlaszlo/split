@@ -27,7 +27,8 @@ body {
   flex-shrink: 0;
 }
 
-#toolbar button {
+#toolbar button,
+#home-link {
   display: grid;
   place-items: center;
   width: 40px;
@@ -40,7 +41,8 @@ body {
   cursor: pointer;
 }
 
-#toolbar button:hover {
+#toolbar button:hover,
+#home-link:hover {
   background: #3d3d3d;
 }
 

@@ -7,9 +7,9 @@
 // - Backspace deletes the last character; deleting them all removes the text.
 // - Enter starts a new line, Escape stops editing.
 
-import { state } from "../state.js";
-import { LINE_HEIGHT } from "../font.js";
-import { textEnd } from "../objects/text.js";
+import { state } from "../../core/state.js";
+import { LINE_HEIGHT } from "../../core/font.js";
+import { textEnd } from "../../core/objects/text.js";
 import { depthForCellSize, cellIndex, drawGhostRect, drawBoxOutline } from "./grid.js";
 
 const TEXT_PIXEL_SIZE = 1.5; // CSS pixels per font pixel on screen, when placing the cursor

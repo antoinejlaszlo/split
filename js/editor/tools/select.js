@@ -5,8 +5,8 @@
 //   the new shape, which is applied when the button is released.
 // - Delete or Backspace removes the selected object entirely; Escape deselects.
 
-import { state } from "../state.js";
-import { objectTypes } from "../objects/types.js";
+import { state } from "../../core/state.js";
+import { objectTypes } from "../../core/objects/types.js";
 import {
   cellIndex, boxToWorld, drawBoxOutline, drawSelectionOutline, drawPathGhost,
 } from "./grid.js";

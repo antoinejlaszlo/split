@@ -79,6 +79,7 @@ export function deserialize(text, quadtree, objects) {
   // The root object is shared by the whole app, so it is updated in place.
   quadtree.color = tree.color;
   quadtree.children = tree.children;
+  QuadtreeNode.version++;
   objects.replaceAll(loadedObjects);
 }
 
@@ -86,5 +87,6 @@ export function deserialize(text, quadtree, objects) {
 export function clearDocument(quadtree, objects) {
   quadtree.color = [255, 255, 255];
   quadtree.children = null;
+  QuadtreeNode.version++;
   objects.replaceAll([]);
 }

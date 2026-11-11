@@ -1,6 +1,6 @@
 // New, Save and Open buttons at the bottom of the tool bar (.quad files).
 
-import { serialize, deserialize, clearDocument } from "./storage.js";
+import { serialize, deserialize, clearDocument } from "../core/storage.js";
 
 const NEW_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
   <path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8l-5-5z"/><path d="M14 3v5h5M12 11v6M9 14h6"/>
